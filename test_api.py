@@ -1,0 +1,15 @@
+import requests
+
+url = "http://127.0.0.1:5000/api/analyze-image"
+
+image_path = "sample.jpeg"
+
+with open(image_path, "rb") as image:
+    files = {
+        "image": image
+    }
+
+    response = requests.post(url, files=files)
+
+print("Status Code:", response.status_code)
+print("Response:", response.json())
